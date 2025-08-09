@@ -166,6 +166,65 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
+            color: hsl(var(--foreground));
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: hsl(var(--background));
+            border-bottom: 1px solid hsl(var(--border));
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .mobile-menu-content {
+            padding: 20px;
+        }
+
+        .mobile-menu-search {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-search .search-input {
+            width: 100%;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: hsl(var(--foreground));
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav-links a:hover {
+            background-color: hsl(var(--muted));
+            color: hsl(var(--primary));
         }
 
         /* Hero Section */
@@ -796,8 +855,30 @@
             </div>
 
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars" id="mobileMenuIcon"></i>
             </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-search">
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" placeholder="Search..." onkeyup="handleSearch(this.value)">
+                    </div>
+                </div>
+                
+                <ul class="mobile-nav-links">
+                    <li><a href="#home" onclick="scrollToSection('#home'); toggleMobileMenu();">Home</a></li>
+                    <li><a href="#about" onclick="scrollToSection('#about'); toggleMobileMenu();">About</a></li>
+                    <li><a href="#services" onclick="scrollToSection('#services'); toggleMobileMenu();">What We Do</a></li>
+                    <li><a href="#values" onclick="scrollToSection('#values'); toggleMobileMenu();">Values</a></li>
+                    <li><a href="#objectives" onclick="scrollToSection('#objectives'); toggleMobileMenu();">Objectives</a></li>
+                    <li><a href="#donation" onclick="scrollToSection('#donation'); toggleMobileMenu();">Donate</a></li>
+                    <li><a href="#contact" onclick="scrollToSection('#contact'); toggleMobileMenu();">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -1389,8 +1470,9 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="#" class="whatsapp-btn" onclick="openWhatsApp()" title="Contact us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <a href="javascript:void(0)" onclick="openWhatsApp()" class="whatsapp-btn" aria-label="Contact us on WhatsApp" title="Contact us on WhatsApp">
+        <img src="https://i.imgur.com/45zPu80.png" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="width: 100%; height: 100%; background: #25D366; border-radius: 50%; display: none; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">WA</div>
     </a>
 
     <!-- Back to Top Button -->
@@ -1530,12 +1612,31 @@
             }, 3000);
         }
 
-        // Mobile menu (basic implementation)
+        // Mobile menu functionality
         function toggleMobileMenu() {
-            // This is a simplified implementation
-            // In a full implementation, you'd show/hide the mobile menu
-            alert('Mobile menu functionality can be expanded based on requirements');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+            
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenu.classList.remove('open');
+                mobileMenuIcon.className = 'fas fa-bars';
+            } else {
+                mobileMenu.classList.add('open');
+                mobileMenuIcon.className = 'fas fa-times';
+            }
         }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                if (mobileMenu.classList.contains('open')) {
+                    toggleMobileMenu();
+                }
+            }
+        });
 
         // SEO optimization
         document.addEventListener('DOMContentLoaded', function() {
