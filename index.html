@@ -316,6 +316,14 @@
             object-fit: cover;
             border-radius: 1rem;
             margin-bottom: 1.5rem;
+            loading: lazy;
+        }
+
+        /* Mobile Image Optimization */
+        @media (max-width: 768px) {
+            .card img {
+                height: 200px;
+            }
         }
 
         /* Grid Layouts */
@@ -480,7 +488,7 @@
     <header class="header">
         <nav class="container nav">
             <div class="logo-section">
-                <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD Logo" class="logo">
+                <img src="https://i.imgur.com/mtlM3yt_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Logo" class="logo">
                 <div>
                     <h1 style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--primary)); font-family: var(--font-display);">LGPD</h1>
                     <p style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">Life Gate for Persons with Disabilities</p>
@@ -556,17 +564,17 @@
 
             <div class="grid grid-3">
                 <div class="card animate-fade-in hover-scale">
-                    <img src="/lovable-uploads/29ce561c-a871-44aa-bfea-fc965ff16a73.png" alt="LGPD Big Wins - Before and After Advocacy">
+                    <img src="https://i.imgur.com/XLvZKLD_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Big Wins - Before and After Advocacy" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Advocacy Success Stories</h3>
                     <p class="text-muted">Real transformation through our advocacy programs</p>
                 </div>
                 <div class="card animate-fade-in hover-scale">
-                    <img src="/lovable-uploads/9471c3bd-b1c7-4b2d-ab4f-3a10c7e28db0.png" alt="LGPD Big Wins - Community Transformations">
+                    <img src="https://i.imgur.com/2kF8vNz_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Big Wins - Community Transformations" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Life Transformations</h3>
                     <p class="text-muted">Empowering individuals to reach their full potential</p>
                 </div>
                 <div class="card animate-fade-in hover-scale">
-                    <img src="/lovable-uploads/007a2b25-9cb1-4db3-8e1c-182efc2b8ea5.png" alt="LGPD Community Gathering">
+                    <img src="https://i.imgur.com/8Rt2MnK_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Community Gathering" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Events</h3>
                     <p class="text-muted">Building stronger connections within our community</p>
                 </div>
@@ -574,12 +582,12 @@
 
             <div class="grid grid-md-2" style="margin-top: 3rem;">
                 <div class="card animate-fade-in hover-scale">
-                    <img src="/lovable-uploads/1d5bc875-6692-41ba-9ef2-60f80629d211.png" alt="LGPD Professional Training Session">
+                    <img src="https://i.imgur.com/9KwL2Hx_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Professional Training Session" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Professional Training Sessions</h3>
                     <p class="text-muted">Capacity building workshops for our community leaders and advocates</p>
                 </div>
                 <div class="card animate-fade-in hover-scale">
-                    <img src="/lovable-uploads/dc50dcf9-e585-48d6-b562-68096f18895e.png" alt="LGPD Community Training">
+                    <img src="https://i.imgur.com/Vt3P9Ql_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Community Training" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Education</h3>
                     <p class="text-muted">Grassroots education programs reaching every corner of Rwanda</p>
                 </div>
@@ -726,7 +734,7 @@
             <div class="footer-content grid grid-3">
                 <div>
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <img src="https://i.imgur.com/mtlM3yt_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD" style="width: 50px; height: 50px; border-radius: 50%;">
                         <div>
                             <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;">LGPD</h3>
                             <p style="font-size: 0.9rem; opacity: 0.8;">Life Gate for Persons with Disabilities</p>
@@ -769,7 +777,7 @@
 
     <!-- WhatsApp Button -->
     <button class="whatsapp-btn" onclick="openWhatsApp()" aria-label="Contact us on WhatsApp">
-        <img src="https://i.imgur.com/45zPu80.png" alt="WhatsApp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img src="https://i.imgur.com/45zPu80_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="WhatsApp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display: none; width: 100%; height: 100%; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">📱</div>
     </button>
 
