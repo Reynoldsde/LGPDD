@@ -3,1667 +3,884 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGPD - The Life Gate for Persons with Disabilities | Empowering Lives in Rwanda</title>
-    <meta name="description" content="The Life Gate for Persons with Disabilities (LGPD) empowers persons with disabilities in Rwanda through advocacy, training, and community support. Fostering inclusion where everyone matters." />
-    <meta name="author" content="LGPD" />
-    <meta name="keywords" content="disability advocacy, Rwanda, empowerment, inclusion, LGPD, persons with disabilities, community support, training programs" />
-
-    <meta property="og:title" content="LGPD - The Life Gate for Persons with Disabilities" />
-    <meta property="og:description" content="Empowering persons with disabilities in Rwanda through advocacy, training, and community support. Join our mission of inclusion." />
-    <meta property="og:type" content="website" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>LGPD - Life Gate for Persons with Disabilities | Empowering Lives in Rwanda</title>
+    <meta name="description" content="The Life Gate for Persons with Disabilities (LGPD) empowers persons with disabilities in Rwanda through advocacy, training, and comprehensive support services. Fostering inclusion where everyone matters.">
+    <meta name="keywords" content="disabilities, Rwanda, empowerment, advocacy, inclusion, LGPD, accessibility, rights, support services">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="LGPD - Life Gate for Persons with Disabilities | Empowering Lives in Rwanda">
+    <meta property="og:description" content="Empowering persons with disabilities in Rwanda through advocacy, training, and comprehensive support services. Join our mission of inclusion.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            /* Core Brand Colors */
-            --primary: 158, 64%, 25%; /* Deep teal for trust and stability */
-            --primary-foreground: 0, 0%, 98%;
-            --primary-glow: 158, 64%, 35%;
-            
-            --secondary: 158, 40%, 95%; /* Light teal */
-            --secondary-foreground: 158, 64%, 15%;
-            
-            --accent: 35, 91%, 65%; /* Warm orange for hope */
-            --accent-foreground: 0, 0%, 2%;
-            
-            --background: 0, 0%, 100%;
-            --foreground: 222, 84%, 5%;
-            
-            --card: 0, 0%, 100%;
-            --card-foreground: 222, 84%, 5%;
-            
-            --muted: 210, 40%, 98%;
-            --muted-foreground: 215, 16%, 47%;
-            
-            --border: 214, 32%, 91%;
-            --input: 214, 32%, 91%;
-            
-            --success: 142, 71%, 45%;
-            --warning: 35, 91%, 65%;
-            --info: 217, 91%, 60%;
-        }
-
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            /* Core Brand Colors - Emerald Growth Theme */
+            --background: 0 0% 100%;
+            --foreground: 155 25% 15%;
+            --primary: 158 64% 25%;
+            --primary-glow: 158 85% 45%;
+            --secondary: 45 93% 85%;
+            --secondary-rich: 35 84% 55%;
+            --accent: 210 100% 50%;
+            --accent-light: 210 100% 95%;
+            --success: 142 76% 36%;
+            --warmth: 25 95% 53%;
+            --muted: 155 15% 95%;
+            --muted-foreground: 155 15% 45%;
+            --border: 155 25% 88%;
+            
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+            --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary-glow)));
+            
+            /* Shadows */
+            --shadow-card: 0 10px 30px -5px hsl(var(--primary) / 0.1);
+            --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+            
+            /* Typography */
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: var(--font-body);
             line-height: 1.6;
             color: hsl(var(--foreground));
-            background-color: hsl(var(--background));
-            scroll-behavior: smooth;
+            background: hsl(var(--background));
+            overflow-x: hidden;
+        }
+
+        .font-display { font-family: var(--font-display); }
+        
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: hsl(var(--primary)); }
+        .text-accent { color: hsl(var(--accent)); }
+        .text-muted { color: hsl(var(--muted-foreground)); }
+        
+        .bg-primary { background: hsl(var(--primary)); }
+        .bg-gradient { background: var(--gradient-hero); }
+        .bg-muted { background: hsl(var(--muted)); }
+        
+        /* Animation Classes */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .animate-scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: scaleIn 0.8s ease forwards;
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         /* Loading Screen */
         .loading-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(var(--accent)));
+            inset: 0;
+            background: var(--gradient-hero);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: all 1s ease-out;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-content {
-            text-align: center;
             color: white;
         }
-
-        .loading-gif {
-            width: 128px;
-            height: 128px;
-            margin: 0 auto 24px;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid hsl(var(--border) / 0.5);
-            z-index: 50;
-            padding: 0 20px;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 64px;
-        }
-
-        .nav-logo {
-            font-size: 24px;
-            font-weight: 700;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        
+        .loading-content {
+            text-align: center;
         }
         
-        /* New logo styles */
-        .nav-logo-image {
-            width: auto;
-            height: 40px; /* Adjust height as needed */
+        .loading-gif {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            animation: pulse 2s infinite;
         }
 
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: hsl(var(--foreground));
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: hsl(var(--primary));
-        }
-
-        .search-container {
-            position: relative;
-        }
-
-        .search-input {
-            padding: 8px 40px 8px 40px;
-            border: 1px solid hsl(var(--border));
-            border-radius: 8px;
-            width: 250px;
-            font-family: inherit;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: hsl(var(--muted-foreground));
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: hsl(var(--foreground));
-        }
-
-        .mobile-menu {
+        /* Header */
+        .header {
             position: fixed;
-            top: 64px;
-            left: 0;
-            right: 0;
-            background: hsl(var(--background));
-            border-bottom: 1px solid hsl(var(--border));
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 40;
-            opacity: 0;
-            transform: translateY(-100%);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .mobile-menu.open {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .mobile-menu-content {
-            padding: 20px;
-        }
-
-        .mobile-menu-search {
-            margin-bottom: 20px;
-        }
-
-        .mobile-menu-search .search-input {
+            top: 0;
             width: 100%;
+            background: hsla(var(--background), 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid hsl(var(--border));
+            z-index: 1000;
+            padding: 1rem 0;
         }
-
-        .mobile-nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-
-        .mobile-nav-links li {
-            margin-bottom: 16px;
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
-
-        .mobile-nav-links a {
-            display: block;
-            padding: 12px 16px;
-            text-decoration: none;
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid hsl(var(--accent) / 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            border-color: hsl(var(--accent));
+            transform: scale(1.1);
+        }
+        
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
             color: hsl(var(--foreground));
+            text-decoration: none;
             font-weight: 500;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+            position: relative;
+            transition: color 0.3s ease;
         }
-
-        .mobile-nav-links a:hover {
-            background-color: hsl(var(--muted));
+        
+        .nav-link:hover {
             color: hsl(var(--primary));
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
-        .hero-section {
+        .hero {
             min-height: 100vh;
+            background: var(--gradient-hero);
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
-            background-image: linear-gradient(135deg, hsla(var(--primary), 0.9), hsla(var(--accent), 0.8)), 
-                              url('https://img.freepik.com/premium-photo/happy-disabled-person-wheelchair-having-great-time-with-family-concept-care-disability_556258-637.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 80px 20px 20px;
-        }
-
-        .hero-content {
-            max-width: 1000px;
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-            animation: heroFadeIn 1.2s ease-out 5.5s forwards;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 300;
-            font-style: italic;
-            margin-bottom: 32px;
-            opacity: 0.9;
-        }
-
-        .hero-tagline {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 24px;
-            margin: 32px 0;
-        }
-
-        .hero-motto {
-            color: hsl(var(--accent));
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 600;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-            margin: 32px 0;
-        }
-
-        .btn {
-            padding: 12px 32px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            color: hsl(var(--primary-foreground));
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-accent {
-            background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--warning)));
-            color: hsl(var(--accent-foreground));
-        }
-
-        .btn-accent:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .hero-feature {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-
-        .hero-feature i {
-            font-size: 32px;
-            color: hsl(var(--accent));
-            margin-bottom: 12px;
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-bg-muted {
-            background-color: hsl(var(--muted) / 0.3);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 4vw, 3.5rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 24px;
-        }
-
-        .section-subtitle {
-            font-size: 20px;
-            color: hsl(var(--muted-foreground));
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Cards */
-        .card {
-            background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted) / 0.3));
-            border: 1px solid hsl(var(--border) / 0.5);
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 4px 20px hsla(var(--primary), 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px hsla(var(--primary), 0.3);
-        }
-
-        .grid {
-            display: grid;
-            gap: 32px;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .card-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 32px;
-            color: hsl(var(--primary));
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: hsl(var(--card-foreground));
-        }
-
-        .card-text {
-            color: hsl(var(--muted-foreground));
-            line-height: 1.6;
-        }
-
-        /* Values Section */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-bottom: 64px;
-        }
-
-        .motto-card {
-            background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.05));
-            border: 2px solid hsl(var(--accent) / 0.2);
-            border-radius: 16px;
-            padding: 48px;
-            text-align: center;
-            animation: donationGlow 4s ease-in-out infinite;
-        }
-
-        .motto-icon {
-            font-size: 48px;
-            margin-bottom: 24px;
-        }
-
-        .motto-text {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 600;
-            font-style: italic;
-            color: hsl(var(--foreground));
-            line-height: 1.3;
-        }
-
-        /* Objectives */
-        .objectives-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 32px;
-        }
-
-        .objective-card {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-        }
-
-        .objective-number {
-            width: 48px;
-            height: 48px;
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        /* Donation Section */
-        .donation-section {
-            background: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--primary) / 0.1));
-            border: 2px solid hsl(var(--accent) / 0.2);
-            border-radius: 16px;
-            padding: 48px;
-            animation: donationGlow 4s ease-in-out infinite;
-        }
-
-        .bank-details {
-            background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--background) / 0.8));
-            border: 2px solid hsl(var(--primary) / 0.2);
-            border-radius: 12px;
-            padding: 32px;
-            margin: 32px 0;
-        }
-
-        .bank-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-        }
-
-        .bank-item {
-            background: hsl(var(--muted) / 0.5);
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .bank-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: hsl(var(--muted-foreground));
-            margin-bottom: 4px;
-        }
-
-        .bank-value {
-            font-size: 18px;
-            font-weight: 600;
-            color: hsl(var(--foreground));
-        }
-
-        .account-number {
-            font-size: 24px;
-            font-family: 'Courier New', monospace;
-            color: hsl(var(--primary));
-            letter-spacing: 2px;
-        }
-
-        .copy-btn {
-            width: 100%;
-            margin-top: 16px;
-        }
-
-        /* Footer */
-        .footer {
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            padding: 64px 20px 32px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
-        }
-
-        .footer-section h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-section h3 i {
-            color: hsl(var(--accent));
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links a {
-            color: hsl(var(--primary-foreground) / 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: hsl(var(--accent));
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .contact-item i {
-            color: hsl(var(--accent));
-            margin-top: 2px;
+            overflow: hidden;
         }
         
-        .social-media-icons {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-content p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
         }
 
-        .social-media-icons a {
-            display: flex;
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: hsl(var(--primary-foreground) / 0.1);
-            color: hsl(var(--primary-foreground));
-            font-size: 18px;
-            transition: background-color 0.3s, transform 0.3s;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -10px hsl(var(--primary) / 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: hsl(var(--primary));
         }
 
-        .social-media-icons a:hover {
-            background-color: hsl(var(--accent));
-            transform: translateY(-4px) scale(1.1);
-            color: hsl(var(--accent-foreground));
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            border: 1px solid hsl(var(--border));
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px hsl(var(--primary) / 0.2);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .footer-bottom {
-            border-top: 1px solid hsl(var(--primary-foreground) / 0.2);
-            padding-top: 32px;
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, hsl(var(--primary-glow) / 0.1), hsl(var(--accent) / 0.1));
+            padding: 4rem 0;
+        }
+        
+        .stat-item {
             text-align: center;
-            color: hsl(var(--primary-foreground) / 0.6);
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: hsl(var(--primary));
+            font-family: var(--font-display);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: hsl(var(--muted-foreground));
+            font-weight: 500;
         }
 
         /* WhatsApp Button */
         .whatsapp-btn {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 40;
-            width: 64px;
-            height: 64px;
-            background: hsl(var(--success));
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            animation: whatsappFloat 3s ease-in-out infinite, whatsappPulse 2s ease-in-out infinite;
+            border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
         }
-
+        
         .whatsapp-btn:hover {
             transform: scale(1.1);
+            animation: none;
         }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            z-index: 40;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-            color: hsl(var(--primary-foreground));
-            border: none;
+        
+        .whatsapp-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s;
         }
 
-        .back-to-top:hover {
-            transform: scale(1.1);
+        /* Section Titles */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--primary));
+            font-family: var(--font-display);
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
 
-        .back-to-top.visible {
-            display: flex;
-        }
-
-        /* Search Results */
-        .search-results {
-            position: fixed;
-            top: 64px;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid hsl(var(--border));
-            padding: 16px;
-            z-index: 40;
-            text-align: center;
-            display: none;
-        }
-
-        .search-results.visible {
-            display: block;
-        }
-
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: hsl(var(--primary));
-            color: hsl(var(--primary-foreground));
-            padding: 16px 24px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            z-index: 9999;
-            display: none;
-            animation: toastShow 0.3s ease-out;
-        }
-
-        .toast.visible {
-            display: block;
-        }
-
-        /* Animations */
-        @keyframes heroFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes whatsappFloat {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-8px) rotate(3deg);
-            }
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% {
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 0 hsla(var(--success), 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 15px hsla(var(--success), 0);
-            }
-        }
-
-        @keyframes donationGlow {
-            0%, 100% {
-                border-color: hsl(var(--accent) / 0.2);
-                box-shadow: 0 0 20px hsla(var(--accent), 0.1);
-            }
-            50% {
-                border-color: hsl(var(--accent) / 0.4);
-                box-shadow: 0 0 30px hsla(var(--accent), 0.2);
-            }
-        }
-
-        @keyframes toastShow {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: hsl(var(--accent-light));
+            color: hsl(var(--accent));
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid hsl(var(--accent) / 0.2);
         }
 
         /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .grid-md-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .search-input {
-                width: 200px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .objectives-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .bank-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .section { padding: 3rem 0; }
+            .container { padding: 0 1rem; }
             .whatsapp-btn {
-                width: 56px;
-                height: 56px;
-                font-size: 28px;
+                width: 60px;
+                height: 60px;
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .search-container {
-                display: none;
-            }
+        /* Footer */
+        .footer {
+            background: hsl(var(--foreground));
+            color: hsl(var(--background));
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer a {
+            color: hsl(var(--background) / 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: hsl(var(--background));
+        }
 
-            .hero-section {
-                padding: 100px 15px 20px;
-            }
-
-            .section {
-                padding: 60px 15px;
-            }
-
-            .card {
-                padding: 24px;
-            }
-
-            .donation-section {
-                padding: 32px 20px;
-            }
+        /* Hide loading screen after page loads */
+        .loaded .loading-screen {
+            display: none;
         }
     </style>
 </head>
-
 <body>
-    <div id="loadingScreen" class="loading-screen">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
         <div class="loading-content">
-            <img src="https://media.lordicon.com/icons/wired/lineal/1800-handicapped.gif" alt="Loading..." class="loading-gif">
-            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 8px;">Welcome to LGPD</h2>
-            <p style="font-size: 1.2rem; opacity: 0.8;">Loading your gateway to empowerment...</p>
+            <div class="loading-gif">
+                <img src="https://www.animatedimages.org/data/media/1655/animated-wheelchair-image-0006.gif" alt="Loading..." style="width: 100%; height: 100%;">
+            </div>
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; font-family: var(--font-display);">LGPD</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Empowering Lives, Building Futures</p>
+            <div style="width: 200px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 2rem auto; overflow: hidden;">
+                <div id="progress-bar" style="height: 100%; background: white; width: 0%; transition: width 0.1s ease;"></div>
+            </div>
+            <p id="progress-text" style="font-size: 0.9rem; opacity: 0.7;">0%</p>
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD Logo" class="nav-logo-image">
-            </a>
-            
-            <ul class="nav-links">
-                <li><a href="#home" onclick="scrollToSection('#home')">Home</a></li>
-                <li><a href="#about" onclick="scrollToSection('#about')">About</a></li>
-                <li><a href="#services" onclick="scrollToSection('#services')">What We Do</a></li>
-                <li><a href="#values" onclick="scrollToSection('#values')">Values</a></li>
-                <li><a href="#objectives" onclick="scrollToSection('#objectives')">Objectives</a></li>
-                <li><a href="#donation" onclick="scrollToSection('#donation')">Donate</a></li>
-                <li><a href="#contact" onclick="scrollToSection('#contact')">Contact</a></li>
-            </ul>
-
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Search..." onkeyup="handleSearch(this.value)">
-            </div>
-
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars" id="mobileMenuIcon"></i>
-            </button>
-        </div>
-
-        <div id="mobileMenu" class="mobile-menu">
-            <div class="mobile-menu-content">
-                <div class="mobile-menu-search">
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" placeholder="Search..." onkeyup="handleSearch(this.value)">
-                    </div>
-                </div>
-                
-                <ul class="mobile-nav-links">
-                    <li><a href="#home" onclick="scrollToSection('#home'); toggleMobileMenu();">Home</a></li>
-                    <li><a href="#about" onclick="scrollToSection('#about'); toggleMobileMenu();">About</a></li>
-                    <li><a href="#services" onclick="scrollToSection('#services'); toggleMobileMenu();">What We Do</a></li>
-                    <li><a href="#values" onclick="scrollToSection('#values'); toggleMobileMenu();">Values</a></li>
-                    <li><a href="#objectives" onclick="scrollToSection('#objectives'); toggleMobileMenu();">Objectives</a></li>
-                    <li><a href="#donation" onclick="scrollToSection('#donation'); toggleMobileMenu();">Donate</a></li>
-                    <li><a href="#contact" onclick="scrollToSection('#contact'); toggleMobileMenu();">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="searchResults" class="search-results">
-        <p id="searchResultsText"></p>
-    </div>
-
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                The Life Gate for<br>
-                <span style="color: hsl(var(--accent));">Persons with Disabilities</span>
-            </h1>
-            <p class="hero-subtitle">IREMBO RY'UBUZIMA KU BANTU BAFITE UBUMUGA</p>
-            
-            <div class="hero-tagline">
-                <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 16px;">
-                    "Advocate and empowering persons with disabilities"
-                </p>
-                <p class="hero-motto">
-                    "Fostering the culture of inclusion where everyone matters!"
-                </p>
-            </div>
-
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary" onclick="scrollToSection('#about')">
-                    <i class="fas fa-heart"></i>
-                    Learn About Us
-                </a>
-                <a href="#donation" class="btn btn-accent" onclick="scrollToSection('#donation')">
-                    <i class="fas fa-users"></i>
-                    Support Our Mission
-                </a>
-            </div>
-
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <i class="fas fa-heart"></i>
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Love & Care</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Providing compassionate support to transform lives</p>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-users"></i>
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Empowerment</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Building stronger communities through inclusion</p>
-                </div>
-                <div class="hero-feature">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 8px;">Transformation</h3>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">Creating sustainable change and opportunities</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section section-bg-muted">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About LGPD</h2>
-                <p class="section-subtitle">
-                    Dedicated to empowering persons with disabilities through advocacy, support, and community building since 2020.
-                </p>
-            </div>
-
-            <div class="grid grid-2">
+    <!-- Header -->
+    <header class="header">
+        <nav class="container nav">
+            <div class="logo-section">
+                <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD Logo" class="logo">
                 <div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h3 class="card-title">Our Foundation</h3>
-                        <p class="card-text">
-                            The Life Gate for Persons with Disabilities (LGPD) was established on December 15, 2020, 
-                            by 11 dedicated members from different districts, known as the founders of our organization. 
-                            We began with a shared vision of creating meaningful change in our community.
-                        </p>
-                    </div>
-
-                    <div class="card" style="margin-top: 32px;">
-                        <div class="card-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <h3 class="card-title">Our Location</h3>
-                        <p class="card-text">
-                            Our organization operates in Kibenga cell, Ndera Sector in Gasabo district, 
-                            serving as a beacon of hope and support for persons with disabilities throughout the region.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="card" style="background: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));">
-                        <div class="card-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3 class="card-title">Our Vision</h3>
-                        <p class="card-text" style="font-style: italic; font-size: 18px; font-weight: 500;">
-                            "To see the persons with disabilities empowered for life transformation"
-                        </p>
-                    </div>
-
-                    <div class="card" style="margin-top: 32px; background: linear-gradient(135deg, hsl(var(--accent) / 0.05), hsl(var(--primary) / 0.05));">
-                        <h3 class="card-title">Our Mission</h3>
-                        <p class="card-text">
-                            To advocate, empower and transform the broken lives of people with disabilities through 
-                            sustainable development programs and well-being in partnership with local community.
-                        </p>
-                    </div>
+                    <h1 style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--primary)); font-family: var(--font-display);">LGPD</h1>
+                    <p style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">Life Gate for Persons with Disabilities</p>
                 </div>
             </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#photos" class="nav-link">Impact</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#stories" class="nav-link">Stories</a>
+                <a href="#donate" class="nav-link">Support</a>
+            </div>
+        </nav>
+    </header>
 
-            <div style="margin-top: 64px;">
-                <div class="card" style="background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1)); text-align: center;">
-                    <h3 class="card-title">Get In Touch</h3>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; margin-top: 24px;">
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-phone" style="font-size: 20px; color: hsl(var(--primary));"></i>
-                            <span style="font-size: 18px; font-weight: 500;">0788474811</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
-                            <i class="fas fa-envelope" style="font-size: 20px; color: hsl(var(--primary));"></i>
-                            <span style="font-size: 18px; font-weight: 500;">Lifegaterwanda21@gmail.com</span>
-                        </div>
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <div class="badge animate-scale-in">
+                    🌟 Fostering the culture of inclusion where everyone matters!
+                </div>
+                <h1 class="font-display">
+                    The Life Gate for<br>
+                    <span style="background: linear-gradient(45deg, #FFD700, #FFA500); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Persons with Disabilities</span>
+                </h1>
+                <p style="margin-bottom: 1rem;">IREMBO RY'UBUZIMA KU BANTU BAFITE UBUMUGA</p>
+                <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 3rem;">"Advocate and empowering persons with disabilities"</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="openWhatsApp()" class="btn btn-primary hover-scale">Get Involved</button>
+                    <a href="#about" class="btn btn-outline hover-scale">Learn About Us</a>
+                </div>
+            </div>
+        </div>
+        <div style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: white; text-align: center; animation: bounce 2s infinite;">
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Scroll to explore</p>
+            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.5); margin: 0 auto;"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="grid grid-4">
+                <div class="stat-item animate-fade-in hover-scale">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Lives Empowered</div>
+                </div>
+                <div class="stat-item animate-fade-in hover-scale">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Training Programs</div>
+                </div>
+                <div class="stat-item animate-fade-in hover-scale">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Communities Reached</div>
+                </div>
+                <div class="stat-item animate-fade-in hover-scale">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years of Impact</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section">
+    <!-- Real Impact Photos Section -->
+    <section class="section bg-muted" id="photos">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What We Do</h2>
-                <p class="section-subtitle">
-                    Our comprehensive approach focuses on empowerment, advocacy, and transformation through various programs and services.
-                </p>
+            <div class="text-center animate-fade-in">
+                <div class="badge">Our Real Impact</div>
+                <h2 class="section-title">LGPD Big Wins & Community Action</h2>
+                <p class="section-subtitle">See the real transformations and community engagement happening every day</p>
             </div>
 
-            <div class="grid grid-2">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-heart" style="color: #ef4444;"></i>
-                    </div>
-                    <h3 class="card-title">Love & Care</h3>
-                    <p class="card-text">
-                        We provide compassionate care and emotional support to individuals and families, creating a nurturing 
-                        environment where everyone feels valued and understood.
-                    </p>
+            <div class="grid grid-3">
+                <div class="card animate-fade-in hover-scale">
+                    <img src="/lovable-uploads/29ce561c-a871-44aa-bfea-fc965ff16a73.png" alt="LGPD Big Wins - Before and After Advocacy">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Advocacy Success Stories</h3>
+                    <p class="text-muted">Real transformation through our advocacy programs</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-book-open" style="color: #3b82f6;"></i>
-                    </div>
-                    <h3 class="card-title">Training & Education</h3>
-                    <p class="card-text">
-                        Comprehensive training programs including life skills, trauma healing, sexual reproductive health education, 
-                        and vocational training for sustainable empowerment.
-                    </p>
+                <div class="card animate-fade-in hover-scale">
+                    <img src="/lovable-uploads/9471c3bd-b1c7-4b2d-ab4f-3a10c7e28db0.png" alt="LGPD Big Wins - Community Transformations">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Life Transformations</h3>
+                    <p class="text-muted">Empowering individuals to reach their full potential</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-bullhorn" style="color: #f97316;"></i>
-                    </div>
-                    <h3 class="card-title">Advocacy & Awareness</h3>
-                    <p class="card-text">
-                        We advocate for the rights of persons with disabilities and raise awareness in communities to promote 
-                        inclusion and fight discrimination.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-users" style="color: #22c55e;"></i>
-                    </div>
-                    <h3 class="card-title">Life Transformation</h3>
-                    <p class="card-text">
-                        Through our holistic approach, we empower individuals to overcome challenges and transform their lives, 
-                        building stronger, more inclusive communities.
-                    </p>
+                <div class="card animate-fade-in hover-scale">
+                    <img src="/lovable-uploads/007a2b25-9cb1-4db3-8e1c-182efc2b8ea5.png" alt="LGPD Community Gathering">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Events</h3>
+                    <p class="text-muted">Building stronger connections within our community</p>
                 </div>
             </div>
 
-            <div style="margin-top: 64px; text-align: center;">
-                <div class="card" style="background: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));">
-                    <h3 class="card-title">Our Impact</h3>
-                    <p class="card-text" style="font-size: 18px; max-width: 800px; margin: 0 auto;">
-                        Since our establishment in 2020, we have been committed to creating lasting change in the lives of persons 
-                        with disabilities. Through our dedicated programs, we continue to build bridges of understanding, 
-                        provide essential support, and advocate for equal rights and opportunities for all.
-                    </p>
+            <div class="grid grid-md-2" style="margin-top: 3rem;">
+                <div class="card animate-fade-in hover-scale">
+                    <img src="/lovable-uploads/1d5bc875-6692-41ba-9ef2-60f80629d211.png" alt="LGPD Professional Training Session">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Professional Training Sessions</h3>
+                    <p class="text-muted">Capacity building workshops for our community leaders and advocates</p>
+                </div>
+                <div class="card animate-fade-in hover-scale">
+                    <img src="/lovable-uploads/dc50dcf9-e585-48d6-b562-68096f18895e.png" alt="LGPD Community Training">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Education</h3>
+                    <p class="text-muted">Grassroots education programs reaching every corner of Rwanda</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="values" class="section section-bg-muted">
+    <!-- Services Section -->
+    <section class="section" id="services">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Core Values</h2>
-                <p class="section-subtitle">
-                    These fundamental principles guide our mission and shape our approach to empowering persons with disabilities.
-                </p>
+            <div class="text-center animate-fade-in">
+                <div class="badge">Our Services</div>
+                <h2 class="section-title">Comprehensive Support Services</h2>
+                <p class="section-subtitle">We provide holistic support designed to empower every aspect of life for persons with disabilities</p>
             </div>
 
-            <div class="values-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-shield-alt" style="color: #3b82f6;"></i>
-                    </div>
-                    <h3 class="card-title">Integrity</h3>
-                    <p class="card-text">
-                        We uphold the highest ethical standards in all our actions, ensuring transparency and honesty in everything we do.
-                    </p>
+            <div class="grid grid-3">
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">👥</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Advocacy & Rights</h3>
+                    <p class="text-muted">Legal advocacy, rights education, and support to ensure fair treatment and equal opportunities</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-eye" style="color: #22c55e;"></i>
-                    </div>
-                    <h3 class="card-title">Transparency</h3>
-                    <p class="card-text">
-                        Open communication and clear accountability guide our operations, building trust with our community and partners.
-                    </p>
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">📚</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Education & Training</h3>
+                    <p class="text-muted">Comprehensive training programs including life skills, sexual reproductive health, and empowerment</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-user-check" style="color: #8b5cf6;"></i>
-                    </div>
-                    <h3 class="card-title">Accountability</h3>
-                    <p class="card-text">
-                        We take responsibility for our actions and commitments, ensuring we deliver on our promises to those we serve.
-                    </p>
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">💼</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Employment Services</h3>
+                    <p class="text-muted">Job creation initiatives, professional training, and entrepreneurship development programs</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-users" style="color: #f97316;"></i>
-                    </div>
-                    <h3 class="card-title">Inclusion</h3>
-                    <p class="card-text">
-                        Every person matters. We create spaces where diversity is celebrated and everyone has equal opportunities to thrive.
-                    </p>
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">❤️</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Support</h3>
+                    <p class="text-muted">Strengthening disabled groups, family support, and community integration programs</p>
                 </div>
-
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-handshake" style="color: #ec4899;"></i>
-                    </div>
-                    <h3 class="card-title">Teamwork Spirit</h3>
-                    <p class="card-text">
-                        Together we achieve more. Collaboration and mutual support drive our success in creating positive change.
-                    </p>
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">🎯</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Strategic Partnerships</h3>
+                    <p class="text-muted">Networking with organizations and government agencies to improve wellbeing outcomes</p>
                 </div>
-            </div>
-
-            <div class="motto-card">
-                <div class="motto-icon">🌟</div>
-                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 24px; background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow))); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Our Motto</h3>
-                <blockquote class="motto-text">
-                    "Fostering the culture of inclusion where everyone matters!"
-                </blockquote>
-                <div style="display: flex; justify-content: center; gap: 16px; margin-top: 32px;">
-                    <div style="width: 8px; height: 8px; background: hsl(var(--primary)); border-radius: 50%; animation: pulse 2s infinite;"></div>
-                    <div style="width: 8px; height: 8px; background: hsl(var(--accent)); border-radius: 50%; animation: pulse 2s infinite 0.3s;"></div>
-                    <div style="width: 8px; height: 8px; background: hsl(var(--primary)); border-radius: 50%; animation: pulse 2s infinite 0.6s;"></div>
+                <div class="card animate-fade-in hover-scale text-center">
+                    <div style="width: 80px; height: 80px; background: hsl(var(--primary) / 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: hsl(var(--primary));">🤝</div>
+                    <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Sustainable Development</h3>
+                    <p class="text-muted">Healthcare, agro-livestock projects, and long-term empowerment initiatives</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="objectives" class="section">
+    <!-- About Section -->
+    <section class="section bg-muted" id="about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Objectives</h2>
-                <p class="section-subtitle">
-                    Six strategic objectives that drive our mission to create lasting positive change in the lives of persons with disabilities.
-                </p>
-            </div>
-
-            <div class="objectives-grid">
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-target" style="color: #3b82f6;"></i>
-                            </div>
-                            <div class="objective-number">1</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Life Transformation Training</h3>
-                            <p class="card-text">
-                                Empowering persons with disabilities through comprehensive training programs including healing trauma wounds, 
-                                life skills development, sexual reproductive health education, and personal empowerment sessions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-users" style="color: #22c55e;"></i>
-                            </div>
-                            <div class="objective-number">2</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Community Strengthening</h3>
-                            <p class="card-text">
-                                Contributing to the reconstitution of groups of disabled people to strengthen their capacities, 
-                                advancing their rights and combating various forms of violence and discrimination against them.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-exclamation-circle" style="color: #f97316;"></i>
-                            </div>
-                            <div class="objective-number">3</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Advocacy & Support</h3>
-                            <p class="card-text">
-                                Raising awareness and assisting vulnerable families, orphans, street children, with special focus on 
-                                advocating for women and girls with disabilities and children from related families.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-briefcase" style="color: #8b5cf6;"></i>
-                            </div>
-                            <div class="objective-number">4</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Job Creation Initiatives</h3>
-                            <p class="card-text">
-                                Supporting persons with disabilities' initiatives for job creation through various professional formations, 
-                                apprenticeship training programs, and entrepreneurship development.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-handshake" style="color: #ec4899;"></i>
-                            </div>
-                            <div class="objective-number">5</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Strategic Partnerships</h3>
-                            <p class="card-text">
-                                Partnering and networking with other organizations, government agencies, and international bodies aimed at 
-                                improving the well-being of persons with disabilities and elderly vulnerable populations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="objective-card">
-                        <div>
-                            <div class="card-icon">
-                                <i class="fas fa-seedling" style="color: #14b8a6;"></i>
-                            </div>
-                            <div class="objective-number">6</div>
-                        </div>
-                        <div>
-                            <h3 class="card-title">Sustainable Development</h3>
-                            <p class="card-text">
-                                Sustaining development programs and well-being of persons with disabilities through education, healthcare, 
-                                agro-livestock projects, and animal husbandry initiatives for long-term empowerment.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 64px; text-align: center;">
-                <div class="card" style="background: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));">
-                    <h3 class="card-title">Join Our Mission</h3>
-                    <p class="card-text" style="font-size: 18px; max-width: 800px; margin: 0 auto 32px;">
-                        These objectives represent our commitment to creating a more inclusive society. Together, we can achieve lasting change 
-                        and ensure that every person with disabilities has the opportunity to thrive and contribute meaningfully to their communities.
+            <div class="grid grid-md-2" style="align-items: center; gap: 4rem;">
+                <div class="animate-fade-in">
+                    <div class="badge">About LGPD</div>
+                    <h2 class="section-title">A beacon of hope and empowerment in Rwanda</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: hsl(var(--muted-foreground));">
+                        The Life Gate for Persons with Disabilities (LGPD) is more than an organization—we are a movement of hope, 
+                        empowerment, and transformation. Founded in 2020 by 11 dedicated advocates, we believe that every person, 
+                        regardless of their abilities, deserves dignity, respect, and the opportunity to thrive.
                     </p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 32px; margin-top: 32px;">
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--primary));">2020</div>
+                    
+                    <div class="grid grid-3" style="margin-bottom: 2rem;">
+                        <div class="text-center" style="padding: 1.5rem; background: hsl(var(--primary) / 0.05); border-radius: 1rem;">
+                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--primary)); font-family: var(--font-display);">2020</div>
                             <div style="font-size: 0.9rem; color: hsl(var(--muted-foreground));">Founded</div>
                         </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--primary));">6</div>
-                            <div style="font-size: 0.9rem; color: hsl(var(--muted-foreground));">Core Objectives</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--primary));">11</div>
+                        <div class="text-center" style="padding: 1.5rem; background: hsl(var(--accent) / 0.05); border-radius: 1rem;">
+                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--accent)); font-family: var(--font-display);">11</div>
                             <div style="font-size: 0.9rem; color: hsl(var(--muted-foreground));">Founding Members</div>
                         </div>
-                        <div>
-                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--primary));">∞</div>
+                        <div class="text-center" style="padding: 1.5rem; background: hsl(var(--success) / 0.05); border-radius: 1rem;">
+                            <div style="font-size: 2rem; font-weight: 700; color: hsl(var(--success)); font-family: var(--font-display);">∞</div>
                             <div style="font-size: 0.9rem; color: hsl(var(--muted-foreground));">Lives Impacted</div>
                         </div>
                     </div>
+                    
+                    <p style="font-size: 1.3rem; font-weight: 600; color: hsl(var(--primary)); font-style: italic; font-family: var(--font-display);">
+                        "Fostering the culture of inclusion where everyone matters!"
+                    </p>
+                </div>
+                
+                <div class="animate-scale-in">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
+                         alt="Empowerment through unity" 
+                         style="width: 100%; border-radius: 2rem; box-shadow: var(--shadow-glow);">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="donation" class="section section-bg-muted">
-        <div class="container" style="max-width: 800px;">
-            <div class="section-header">
-                <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent) / 0.8)); border-radius: 50%; margin-bottom: 24px;">
-                    <i class="fas fa-heart" style="font-size: 32px; color: white;"></i>
-                </div>
-                <h2 class="section-title">Your Generosity Transforms Lives</h2>
-                <p class="section-subtitle">
-                    Every donation helps us empower persons with disabilities and create a more inclusive society. 
-                    Your support makes the difference between hope and despair.
+    <!-- Support Section -->
+    <section class="section bg-gradient" id="donate" style="color: white;">
+        <div class="container">
+            <div class="text-center animate-fade-in">
+                <h2 class="section-title" style="color: white; margin-bottom: 2rem;">Your Support Transforms Lives</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 4rem; opacity: 0.95;">
+                    Every contribution helps us empower persons with disabilities and create a more inclusive Rwanda. 
+                    Join our mission of transformation.
                 </p>
             </div>
 
-            <div class="donation-section">
-                <div style="text-align: center; margin-bottom: 32px;">
-                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 16px;">Make a Direct Bank Transfer</h3>
-                    <p style="color: hsl(var(--muted-foreground));">
-                        Your donation directly supports our programs and helps us reach more people in need.
-                    </p>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 2rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Bank Transfer Details</h3>
+                    <p style="color: hsl(var(--muted-foreground));">Make a direct impact with your donation</p>
                 </div>
 
-                <div class="bank-details">
-                    <div style="text-align: center; margin-bottom: 24px;">
-                        <h4 style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 1.5rem; font-weight: 600;">
-                            <i class="fas fa-university" style="color: hsl(var(--primary));"></i>
-                            Bank Account Details
-                        </h4>
-                    </div>
-
-                    <div class="bank-grid">
-                        <div style="grid-column: span 2;">
-                            <div class="bank-item">
-                                <div class="bank-label">Account Number</div>
-                                <div class="bank-value account-number" id="accountNumber">4013200871037</div>
-                            </div>
-                            <button class="btn btn-primary copy-btn" onclick="copyAccountNumber()">
-                                <i class="fas fa-copy"></i>
-                                <span id="copyBtnText">Copy Account Number</span>
-                            </button>
+                <div class="grid grid-md-2">
+                    <div>
+                        <div style="background: hsl(var(--muted)); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem;">
+                            <h4 style="font-weight: 600; color: hsl(var(--primary)); margin-bottom: 1rem;">Account Number</h4>
+                            <div style="font-family: monospace; font-size: 1.8rem; font-weight: 700; color: hsl(var(--foreground));">4013200871037</div>
                         </div>
                         
-                        <div>
-                            <div class="bank-item">
-                                <div class="bank-label">Bank Name</div>
-                                <div class="bank-value">Equity Bank</div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="bank-item">
-                                <div class="bank-label">Account Holder</div>
-                                <div class="bank-value">The Life Gate for Persons with Disabilities (LGPD)</div>
-                            </div>
+                        <div style="background: hsl(var(--muted)); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem;">
+                            <h4 style="font-weight: 600; color: hsl(var(--primary)); margin-bottom: 1rem;">Bank Name</h4>
+                            <div style="font-size: 1.3rem; font-weight: 600;">Equity Bank</div>
                         </div>
                     </div>
 
-                    <div style="border-top: 1px solid hsl(var(--border)); padding-top: 24px; margin-top: 24px;">
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; text-align: center;">
-                            <div style="padding: 16px;">
-                                <i class="fas fa-credit-card" style="font-size: 32px; color: hsl(var(--primary)); margin-bottom: 8px;"></i>
-                                <div style="font-weight: 600; margin-bottom: 4px;">Secure Transfer</div>
-                                <div style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">Bank-level security</div>
-                            </div>
-                            <div style="padding: 16px;">
-                                <i class="fas fa-heart" style="font-size: 32px; color: hsl(var(--accent)); margin-bottom: 8px;"></i>
-                                <div style="font-weight: 600; margin-bottom: 4px;">Direct Impact</div>
-                                <div style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">100% goes to programs</div>
-                            </div>
-                            <div style="padding: 16px;">
-                                <i class="fas fa-check" style="font-size: 32px; color: hsl(var(--success)); margin-bottom: 8px;"></i>
-                                <div style="font-weight: 600; margin-bottom: 4px;">Transparent</div>
-                                <div style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">Full accountability</div>
-                            </div>
+                    <div>
+                        <div style="background: hsl(var(--primary) / 0.1); padding: 2rem; border-radius: 1rem; text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                            <h4 style="font-weight: 600; color: hsl(var(--primary)); margin-bottom: 0.5rem;">Secure</h4>
+                            <p class="text-muted">Bank-level security</p>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-top: 32px; text-align: center;">
-                    <p style="color: hsl(var(--muted-foreground)); font-size: 0.9rem;">
-                        For international donations or other payment methods, please contact us at 
-                        <a href="mailto:Lifegaterwanda21@gmail.com" style="color: hsl(var(--primary)); text-decoration: none; font-weight: 500;">
-                            Lifegaterwanda21@gmail.com
-                        </a>
-                    </p>
+                <div class="text-center" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid hsl(var(--border));">
+                    <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">For international donations or other payment methods:</p>
+                    <a href="mailto:Lifegaterwanda21@gmail.com" style="color: hsl(var(--primary)); font-weight: 600; font-size: 1.1rem;">Lifegaterwanda21@gmail.com</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>
-                        <i class="fas fa-heart"></i>
-                        LGPD
-                    </h3>
-                    <p style="color: hsl(var(--primary-foreground) / 0.8); line-height: 1.6; margin-bottom: 24px;">
-                        The Life Gate for Persons with Disabilities (LGPD) - Empowering lives, 
-                        fostering inclusion, and creating opportunities for persons with disabilities 
-                        throughout Rwanda.
+            <div class="footer-content grid grid-3">
+                <div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                        <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <div>
+                            <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;">LGPD</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Life Gate for Persons with Disabilities</p>
+                        </div>
+                    </div>
+                    <p style="opacity: 0.8; line-height: 1.6;">
+                        Empowering persons with disabilities in Rwanda through advocacy, 
+                        training, and comprehensive support services.
                     </p>
-                    <div style="font-size: 0.9rem; color: hsl(var(--primary-foreground) / 0.6);">
-                        <p>IREMBO RY'UBUZIMA KU BANTU BAFITE UBUMUGA</p>
-                        <p style="margin-top: 8px; font-style: italic;">"Fostering the culture of inclusion where everyone matters!"</p>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#photos">Impact</a>
+                        <a href="#donate">Support</a>
                     </div>
                 </div>
-
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>0788474811</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:Lifegaterwanda21@gmail.com">Lifegaterwanda21@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Kibenga Cell, Ndera Sector<br>Gasabo District, Rwanda</span>
-                    </div>
-                    <div class="social-media-icons">
-                        <a href="https://www.facebook.com/your-lgpd-page" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.youtube.com/your-lgpd-channel" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://twitter.com/your-lgpd-handle" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/your-lgpd-handle" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/your-lgpd-page" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about" onclick="scrollToSection('#about')">About Us</a></li>
-                        <li><a href="#services" onclick="scrollToSection('#services')">What We Do</a></li>
-                        <li><a href="#values" onclick="scrollToSection('#values')">Our Values</a></li>
-                        <li><a href="#objectives" onclick="scrollToSection('#objectives')">Objectives</a></li>
-                        <li><a href="#donation" onclick="scrollToSection('#donation')">Donate</a></li>
-                    </ul>
-                    <div style="padding-top: 16px; border-top: 1px solid hsl(var(--primary-foreground) / 0.2); margin-top: 24px;">
-                        <p style="font-size: 0.9rem; color: hsl(var(--primary-foreground) / 0.6); margin-bottom: 8px;">
-                            <a href="#" style="color: hsl(var(--primary-foreground) / 0.6); text-decoration: none;">Privacy Policy</a>
-                        </p>
-                        <p style="font-size: 0.9rem; color: hsl(var(--primary-foreground) / 0.6);">
-                            Bank Account: 4013200871037 (Equity Bank)
-                        </p>
+                
+                <div>
+                    <h4>Contact</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; opacity: 0.8;">
+                        <p>📧 Lifegaterwanda21@gmail.com</p>
+                        <p>📍 Ndera, Rwanda</p>
+                        <p>📞 +250 788 474 811</p>
+                        <p>👨‍💼 Robert BYILINGIRO, Executive Director</p>
                     </div>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>© 2024 The Life Gate for Persons with Disabilities (LGPD). All rights reserved.</p>
-                <p style="margin-top: 8px;">
-                    Established December 15, 2020 | Building inclusive communities since day one.
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; padding-top: 2rem; text-align: center;">
+                <p style="opacity: 0.6;">
+                    © 2024 LGPD - Life Gate for Persons with Disabilities. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
-    <a href="javascript:void(0)" onclick="openWhatsApp()" class="whatsapp-btn" aria-label="Contact us on WhatsApp" title="Contact us on WhatsApp">
-        <img src="https://i.imgur.com/45zPu80.png" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div style="width: 100%; height: 100%; background: #25D366; border-radius: 50%; display: none; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">WA</div>
-    </a>
-
-    <button id="backToTopBtn" class="back-to-top" onclick="scrollToTop()" title="Back to top">
-        <i class="fas fa-chevron-up"></i>
+    <!-- WhatsApp Button -->
+    <button class="whatsapp-btn" onclick="openWhatsApp()" aria-label="Contact us on WhatsApp">
+        <img src="https://i.imgur.com/45zPu80.png" alt="WhatsApp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display: none; width: 100%; height: 100%; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">📱</div>
     </button>
 
-    <div id="toast" class="toast">
-        <span id="toastMessage"></span>
-    </div>
-
     <script>
-        // Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 5000);
-        });
+        // Loading Screen Animation
+        let progress = 0;
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const loadingScreen = document.getElementById('loading');
 
-        // Smooth scrolling
-        function scrollToSection(selector) {
-            const element = document.querySelector(selector);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // Intersection Observer for animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver(
-                function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                },
-                { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
-            );
-
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(function(section) {
-                observer.observe(section);
-            });
-        });
-
-        // Back to top button
-        window.addEventListener('scroll', function() {
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Search functionality
-        function handleSearch(query) {
-            const searchResults = document.getElementById('searchResults');
-            const searchResultsText = document.getElementById('searchResultsText');
+        const loadingInterval = setInterval(() => {
+            progress += 2;
+            progressBar.style.width = progress + '%';
+            progressText.textContent = progress + '%';
             
-            if (!query.trim()) {
-                searchResults.classList.remove('visible');
-                // Show all sections
-                document.querySelectorAll('section').forEach(function(section) {
-                    section.style.display = 'block';
-                });
-                return;
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        document.body.classList.add('loaded');
+                    }, 500);
+                }, 300);
             }
+        }, 50);
 
-            const searchTerms = query.toLowerCase().split(' ');
-            const sections = document.querySelectorAll('section[id]');
-            let hasResults = false;
-
-            sections.forEach(function(section) {
-                const content = section.textContent.toLowerCase();
-                const hasMatch = searchTerms.some(function(term) {
-                    return content.includes(term) || section.id.includes(term.replace(/s$/, ''));
-                });
-
-                if (hasMatch) {
-                    section.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    section.style.display = 'none';
-                }
-            });
-
-            searchResults.classList.add('visible');
-            if (hasResults) {
-                searchResultsText.textContent = 'Showing results for "' + query + '"';
-            } else {
-                searchResultsText.textContent = 'No results found for "' + query + '". Try searching for terms like "values", "mission", "donate", or "contact".';
-            }
-        }
-
-        // Copy account number
-        function copyAccountNumber() {
-            const accountNumber = document.getElementById('accountNumber').textContent;
-            const copyBtn = document.getElementById('copyBtnText');
-            
-            navigator.clipboard.writeText(accountNumber).then(function() {
-                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                showToast('Account number copied to clipboard!');
-                
-                setTimeout(function() {
-                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy Account Number';
-                }, 3000);
-            }).catch(function(err) {
-                showToast('Failed to copy. Please copy manually.');
-            });
-        }
-
-        // WhatsApp functionality
+        // WhatsApp Function
         function openWhatsApp() {
-            const phoneNumber = '+250788474811';
-            const message = "Hello! I'm interested in learning more about LGPD and how I can support your mission.";
-            const whatsappUrl = 'https://wa.me/' + phoneNumber.replace('+', '') + '?text=' + encodeURIComponent(message);
+            const phoneNumber = "+250788474811";
+            const message = "Hello! I'm interested in getting involved with LGPD and supporting persons with disabilities in Rwanda.";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\s+/g, '')}?text=${encodedMessage}`;
             window.open(whatsappUrl, '_blank');
         }
 
-        // Toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            
-            toastMessage.textContent = message;
-            toast.classList.add('visible');
-            
-            setTimeout(function() {
-                toast.classList.remove('visible');
-            }, 3000);
-        }
-
-        // Mobile menu functionality
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuIcon = document.getElementById('mobileMenuIcon');
-            
-            if (mobileMenu.classList.contains('open')) {
-                mobileMenu.classList.remove('open');
-                mobileMenuIcon.className = 'fas fa-bars';
-            } else {
-                mobileMenu.classList.add('open');
-                mobileMenuIcon.className = 'fas fa-times';
-            }
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const mobileMenu = document.getElementById('mobileMenu');
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                if (mobileMenu.classList.contains('open')) {
-                    toggleMobileMenu();
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            }
+            });
         });
 
-        // SEO optimization
-        document.addEventListener('DOMContentLoaded', function() {
-            // Update meta description if needed
-            const metaDescription = document.querySelector('meta[name="description"]');
-            if (metaDescription) {
-                metaDescription.setAttribute('content', 'The Life Gate for Persons with Disabilities (LGPD) empowers persons with disabilities in Rwanda through advocacy, training, and community support. Join our mission of inclusion.');
-            }
+        // Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements after loading
+        setTimeout(() => {
+            document.querySelectorAll('.animate-fade-in, .animate-scale-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            });
+        }, 2000);
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                if (target > 0) {
+                    let count = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            count = target;
+                            clearInterval(timer);
+                        }
+                        counter.textContent = Math.floor(count) + (counter.textContent.includes('+') ? '+' : '');
+                    }, 30);
+                }
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
         });
+
+        setTimeout(() => {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        }, 2000);
     </script>
 </body>
 </html>
