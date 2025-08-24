@@ -84,25 +84,46 @@
         .bg-gradient { background: var(--gradient-hero); }
         .bg-muted { background: hsl(var(--muted)); }
         
-        /* Animation Classes */
+        /* Enhanced Animation Classes */
         .animate-fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease forwards;
+            transform: translateY(30px);
+            animation: slideInUp 1s ease forwards;
         }
         
         .animate-scale-in {
             opacity: 0;
-            transform: scale(0.9);
-            animation: scaleIn 0.8s ease forwards;
+            transform: scale(0.8);
+            animation: scaleIn 1.2s ease forwards;
+        }
+        
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 1s ease forwards;
+        }
+        
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 1s ease forwards;
         }
         
         .hover-scale {
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .hover-scale:hover {
-            transform: scale(1.05);
+            transform: scale(1.08) translateY(-5px);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .sparkle-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .sparkle-hover:hover {
+            animation: sparkle 0.6s ease;
         }
 
         @keyframes fadeIn {
@@ -127,6 +148,36 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes slideInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            0% { transform: translateX(50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: var(--shadow-card); }
+            50% { box-shadow: var(--shadow-glow); }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(180deg); }
         }
 
         /* Loading Screen */
@@ -488,7 +539,7 @@
     <header class="header">
         <nav class="container nav">
             <div class="logo-section">
-                <img src="https://i.imgur.com/mtlM3yt_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Logo" class="logo">
+                <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD Logo" class="logo">
                 <div>
                     <h1 style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--primary)); font-family: var(--font-display);">LGPD</h1>
                     <p style="font-size: 0.8rem; color: hsl(var(--muted-foreground));">Life Gate for Persons with Disabilities</p>
@@ -564,32 +615,140 @@
 
             <div class="grid grid-3">
                 <div class="card animate-fade-in hover-scale">
-                    <img src="https://i.imgur.com/XLvZKLD_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Big Wins - Before and After Advocacy" loading="lazy">
+                    <img src="https://i.imgur.com/R8j5jFg.png" alt="LGPD Big Wins - Before and After Advocacy" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Advocacy Success Stories</h3>
                     <p class="text-muted">Real transformation through our advocacy programs</p>
                 </div>
                 <div class="card animate-fade-in hover-scale">
-                    <img src="https://i.imgur.com/2kF8vNz_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Big Wins - Community Transformations" loading="lazy">
+                    <img src="https://i.imgur.com/k3X5zVq.png" alt="LGPD Big Wins - Community Transformations" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Life Transformations</h3>
                     <p class="text-muted">Empowering individuals to reach their full potential</p>
-                </div>
-                <div class="card animate-fade-in hover-scale">
-                    <img src="https://i.imgur.com/8Rt2MnK_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Community Gathering" loading="lazy">
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Events</h3>
-                    <p class="text-muted">Building stronger connections within our community</p>
                 </div>
             </div>
 
             <div class="grid grid-md-2" style="margin-top: 3rem;">
                 <div class="card animate-fade-in hover-scale">
-                    <img src="https://i.imgur.com/9KwL2Hx_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Professional Training Session" loading="lazy">
+                    <img src="https://i.imgur.com/4BHvzS1.png" alt="LGPD Professional Training Session" loading="lazy">
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Professional Training Sessions</h3>
                     <p class="text-muted">Capacity building workshops for our community leaders and advocates</p>
                 </div>
                 <div class="card animate-fade-in hover-scale">
-                    <img src="https://i.imgur.com/Vt3P9Ql_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD Community Training" loading="lazy">
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Community Education</h3>
-                    <p class="text-muted">Grassroots education programs reaching every corner of Rwanda</p>
+                    <img src="https://i.imgur.com/9weih5Q.png" alt="Kids with Disabilities Being Helped by LGPD" loading="lazy">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: hsl(var(--primary));">Kids with Disabilities Support</h3>
+                    <p class="text-muted">LGPD helping children with disabilities access education, healthcare, and opportunities for a brighter future</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="section" id="stories">
+        <div class="container">
+            <div class="text-center animate-fade-in">
+                <div class="badge">Our Success Stories</div>
+                <h2 class="section-title">DRF Grant Impact in 2024</h2>
+                <p class="section-subtitle">Through the DRF grant to LGPD in 2024, these key project impacts have been highlighted by beneficiaries</p>
+            </div>
+
+            <div class="grid grid-2" style="gap: 3rem; margin-bottom: 4rem;">
+                <div class="card animate-fade-in hover-scale" style="border-left: 6px solid hsl(var(--primary)); background: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.02));">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: var(--gradient-hero); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">M</div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; font-weight: 700; color: hsl(var(--primary)); margin: 0;">N. Monique</h3>
+                            <p style="font-size: 0.9rem; color: hsl(var(--muted-foreground)); margin: 0;">Mother of three children, woman with physical disability</p>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>Before joining LGPD:</strong> Monique wasn't aware of her rights and felt afraid due to hurtful treatment from her family and society. She felt ashamed and upset about her disability, recalling how neighbours had mistreated her. She didn't feel valuable.
+                    </p>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>After UNCRPD trainings funded by DRF:</strong> She learned that she, too, had rights and was capable. LGPD helped her realize her worth. Through the trainings, Monique gained new skills about the rights of PWDs and feels confident.
+                    </p>
+                    <div style="background: hsl(var(--success) / 0.1); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid hsl(var(--success));">
+                        <p style="color: hsl(var(--success)); font-weight: 600; margin: 0;">
+                            <strong>Transformation:</strong> She now participates in community work monthly, participates in decision-making, advocating for children and girls with disabilities. She works with local authorities to challenge negative societal perceptions. "Tomorrow is brighter, because she is capable, too."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card animate-fade-in hover-scale" style="border-left: 6px solid hsl(var(--accent)); background: linear-gradient(135deg, hsl(var(--accent) / 0.03), hsl(var(--primary) / 0.02));">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: var(--gradient-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">F</div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; font-weight: 700; color: hsl(var(--accent)); margin: 0;">Francine</h3>
+                            <p style="font-size: 0.9rem; color: hsl(var(--muted-foreground)); margin: 0;">Blind woman, massage therapist</p>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>Before UNCRPD training:</strong> Francine felt hopeless, and society, as well as family, tortured her due to her blindness, which made her life hampered. She couldn't see a future for herself.
+                    </p>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>After training sessions:</strong> Her life quickly changed. She began to feel capable and empowered to improve her life situation. With determination, she worked hard to create job opportunities for herself.
+                    </p>
+                    <div style="background: hsl(var(--success) / 0.1); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid hsl(var(--success));">
+                        <p style="color: hsl(var(--success)); font-weight: 600; margin: 0;">
+                            <strong>Achievement:</strong> She enrolled in massage courses and now practices kinesiotherapy to support her family. She encourages others: "disability is not inability" and advocates for hiring people with disabilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-2" style="gap: 3rem;">
+                <div class="card animate-fade-in hover-scale" style="border-left: 6px solid hsl(var(--warmth)); background: linear-gradient(135deg, hsl(var(--warmth) / 0.03), hsl(var(--success) / 0.02));">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, hsl(var(--warmth)), hsl(var(--secondary-rich))); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">C</div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; font-weight: 700; color: hsl(var(--warmth)); margin: 0;">Chantal</h3>
+                            <p style="font-size: 0.9rem; color: hsl(var(--muted-foreground)); margin: 0;">Mother of Benita, girl with physical disability</p>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>Before training:</strong> Chantal felt ashamed of her daughter's disability and faced mockery from family and neighbors. She struggled to accept and support her daughter's needs.
+                    </p>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>After learning about UNCRPD:</strong> She learned about the rights of people with disabilities, especially children, and embraced her daughter's needs with full love and acceptance.
+                    </p>
+                    <div style="background: hsl(var(--success) / 0.1); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid hsl(var(--success));">
+                        <p style="color: hsl(var(--success)); font-weight: 600; margin: 0;">
+                            <strong>Victory:</strong> Chantal took charge of her daughter's health, reached out to healthcare providers. Benita received surgery, is now healed, walking confidently, and attending school with other children.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card animate-fade-in hover-scale" style="border-left: 6px solid hsl(var(--secondary-rich)); background: linear-gradient(135deg, hsl(var(--secondary-rich) / 0.03), hsl(var(--warmth) / 0.02));">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, hsl(var(--secondary-rich)), hsl(var(--warmth))); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">C</div>
+                        <div>
+                            <h3 style="font-size: 1.4rem; font-weight: 700; color: hsl(var(--secondary-rich)); margin: 0;">Celestin</h3>
+                            <p style="font-size: 0.9rem; color: hsl(var(--muted-foreground)); margin: 0;">Father of Patrick, child with clubfoot</p>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>Initial struggle:</strong> Celestin admits it was difficult at first to accept having a child with a disability. Before learning about LGPD, he felt ashamed of his son and struggled with negative comments from others.
+                    </p>
+                    <p style="line-height: 1.7; color: hsl(var(--foreground)); margin-bottom: 1.5rem;">
+                        <strong>After UNCRPD training:</strong> He gained the knowledge and confidence to love his child fully. Through LGPD's advocacy and collaboration with other disability organizations, he was encouraged to seek further medical treatment.
+                    </p>
+                    <div style="background: hsl(var(--success) / 0.1); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid hsl(var(--success));">
+                        <p style="color: hsl(var(--success)); font-weight: 600; margin: 0;">
+                            <strong>Current impact:</strong> Patrick is receiving surgery at Rilima Hospital. Celestin now actively encourages other parents not to isolate their children or feel ashamed. He believes children with disabilities are just as capable and deserving of love.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 4rem;">
+                <div class="card" style="max-width: 900px; margin: 0 auto; background: var(--gradient-hero); color: white; border: none;">
+                    <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; color: white;">Gratitude & Impact</h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8; opacity: 0.95;">
+                        "All beneficiaries express deep gratitude to DRF for funding LGPD to empower them through understanding the rights of people with disabilities. The training has helped them love themselves, build confidence, and envision a brighter future."
+                    </p>
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-style: italic; font-size: 1.1rem; opacity: 0.9;">
+                            ✨ These transformations showcase the profound impact of rights-based education and community support in changing lives and breaking barriers.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -673,9 +832,9 @@
                 </div>
                 
                 <div class="animate-scale-in">
-                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" 
-                         alt="Empowerment through unity" 
-                         style="width: 100%; border-radius: 2rem; box-shadow: var(--shadow-glow);">
+                    <img src="https://i.imgur.com/XLvZKLD.jpeg" 
+                         alt="LGPD Team - Life Gate for Persons with Disabilities" 
+                         style="width: 100%; border-radius: 2rem; box-shadow: var(--shadow-glow); animation: float 6s ease-in-out infinite;" loading="lazy">
                 </div>
             </div>
         </div>
@@ -734,7 +893,7 @@
             <div class="footer-content grid grid-3">
                 <div>
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-                        <img src="https://i.imgur.com/mtlM3yt_d.jpeg?maxwidth=520&shape=thumb&fidelity=high" alt="LGPD" style="width: 50px; height: 50px; border-radius: 50%;">
+                        <img src="https://i.imgur.com/mtlM3yt.jpeg" alt="LGPD" style="width: 50px; height: 50px; border-radius: 50%;">
                         <div>
                             <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 1.3rem;">LGPD</h3>
                             <p style="font-size: 0.9rem; opacity: 0.8;">Life Gate for Persons with Disabilities</p>
@@ -757,19 +916,33 @@
                 </div>
                 
                 <div>
-                    <h4>Contact</h4>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; opacity: 0.8;">
+                    <h4>Contact & Social Media</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; opacity: 0.8; margin-bottom: 1.5rem;">
                         <p>📧 Lifegaterwanda21@gmail.com</p>
                         <p>📍 Ndera, Rwanda</p>
                         <p>📞 +250 788 474 811</p>
                         <p>👨‍💼 Robert BYILINGIRO, Executive Director</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <h4 style="margin: 0;">Follow Us:</h4>
+                        <div style="display: flex; gap: 0.8rem;">
+                            <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 30px -5px rgba(24, 119, 242, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/2048px-2023_Facebook_icon.svg.png" alt="Facebook" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 30px -5px rgba(245, 133, 41, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/960px-Instagram-Icon.png" alt="Instagram" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                            <a href="#" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 10px 30px -5px rgba(0, 0, 0, 0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                                <img src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?semt=ais_hybrid&w=740&q=80" alt="X (Twitter)" style="width: 100%; height: 100%; object-fit: cover;">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem; padding-top: 2rem; text-align: center;">
                 <p style="opacity: 0.6;">
-                    © 2024 LGPD - Life Gate for Persons with Disabilities. All rights reserved.
+                    © 2024 LGPD - Made with love by Ibrix Digital. All rights reserved.
                 </p>
             </div>
         </div>
@@ -777,7 +950,7 @@
 
     <!-- WhatsApp Button -->
     <button class="whatsapp-btn" onclick="openWhatsApp()" aria-label="Contact us on WhatsApp">
-        <img src="https://i.imgur.com/45zPu80_d.png?maxwidth=520&shape=thumb&fidelity=high" alt="WhatsApp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img src="https://i.imgur.com/45zPu80.png" alt="WhatsApp" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display: none; width: 100%; height: 100%; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">📱</div>
     </button>
 
